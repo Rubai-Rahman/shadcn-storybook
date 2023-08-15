@@ -8,14 +8,10 @@ const CustomToggle = ({
   checked: boolean;
   handler: any;
 }) => {
-  console.log(checked);
+  console.log("Custom Toggle", checked);
   return (
     <div className="z-0">
-      <Switch
-        checked={checked}
-        onCheckedChange={handler}
-        className="bg-red-500"
-      ></Switch>
+      <Switch checked={checked} onCheckedChange={handler}></Switch>
     </div>
   );
 };
