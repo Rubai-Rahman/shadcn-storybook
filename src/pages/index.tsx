@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CustomToggle from "../components/CustomToggle";
+import DialogDemo from "@/components/ui/dialog";
 
 export default function Home() {
   const [checked, setChecked] = useState<boolean>(true);
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <div>
       <CustomToggle checked={checked} handler={handleChecked} />
+      <DialogDemo/>
     </div>
   );
 }
