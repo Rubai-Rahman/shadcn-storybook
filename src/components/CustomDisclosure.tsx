@@ -6,7 +6,6 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 import Image from "next/image";
-import { BsChevronDown } from "react-icons/bs";
 
 const CustomDisclosure = ({
   title,

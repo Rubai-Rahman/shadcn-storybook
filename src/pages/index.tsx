@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ImAttachment } from "react-icons/im";
 import { BsEmojiSmileFill } from "react-icons/bs";
+import Modal from "@/components/Modal";
 
 const data = [
   {
@@ -38,12 +39,12 @@ export default function Home() {
   };
 
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-10/12 mx-auto flex flex-col gap-y-6">
       <CustomToggle checked={checked} handler={handleChecked} />
 
       <CustomListbox data={data} />
 
-      <div className="my-5">
+      <div className="flex flex-col gap-y-3">
         <CustomDisclosure
           title="Appearance"
           buttonClass=" flex justify-between"
@@ -100,9 +101,7 @@ export default function Home() {
             </div>
           </div>
         </CustomDisclosure>
-      </div>
 
-      <div className="my-5">
         <CustomDisclosure
           title="Settings"
           buttonClass=" flex justify-between"
@@ -160,9 +159,7 @@ export default function Home() {
             </div>
           </div>
         </CustomDisclosure>
-      </div>
 
-      <div className="my-5">
         <CustomDisclosure
           title="Pre-Chat Survey"
           buttonClass=" flex justify-between"
@@ -236,6 +233,10 @@ export default function Home() {
           </div>
         </CustomDisclosure>
       </div>
+
+      <Modal content={<p>click me</p>}>
+        <p>hi</p>
+      </Modal>
     </div>
   );
 }
