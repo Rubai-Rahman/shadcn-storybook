@@ -2,17 +2,18 @@ import React, { ReactElement } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 const Modal = ({
-  content,
+  // content,
   children,
+  isOpen,
+  closeModal,
 }: {
-  content: ReactElement;
+  // content: ReactElement;
   children: ReactElement;
+  isOpen: boolean;
+  closeModal: () => void;
 }) => {
   return (
-    <Dialog>
-      <DialogTrigger asChild className="cursor-pointer">
-        {content}
-      </DialogTrigger>
+    <Dialog open={isOpen || false} onOpenChange={closeModal}>
       <DialogContent className={`max-w-[425px]`}>{children}</DialogContent>
     </Dialog>
   );

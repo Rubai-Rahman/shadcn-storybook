@@ -5,7 +5,7 @@ import CustomDisclosure from "@/components/CustomDisclosure";
 import { FaPlus } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ImAttachment } from "react-icons/im";
-import { BsEmojiSmileFill } from "react-icons/bs";
+import { BsEmojiSmileFill, BsFillTrashFill } from "react-icons/bs";
 import Modal from "@/components/Modal";
 
 const data = [
@@ -33,9 +33,22 @@ const data = [
 
 export default function Home() {
   const [checked, setChecked] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleChecked = () => {
     setChecked(!checked);
+  };
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const handleAction = () => {
+    openModal();
   };
 
   return (
@@ -234,7 +247,14 @@ export default function Home() {
         </CustomDisclosure>
       </div>
 
-      <Modal content={<p>click me</p>}>
+      <button
+        className={`w-8 h-8 rounded-full bg-redCustom/10 flex justify-center items-center `}
+        onClick={() => handleAction()}
+      >
+        <BsFillTrashFill color="#F3451E" />
+      </button>
+
+      <Modal isOpen={isOpen} closeModal={closeModal}>
         <p>hi</p>
       </Modal>
     </div>
