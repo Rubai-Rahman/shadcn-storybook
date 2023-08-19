@@ -5,7 +5,11 @@ import CustomDisclosure from "@/components/CustomDisclosure";
 import { FaPlus } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ImAttachment } from "react-icons/im";
-import { BsEmojiSmileFill } from "react-icons/bs";
+import { BsEmojiSmileFill, BsFillTrashFill } from "react-icons/bs";
+import Modal from "@/components/Modal";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const data = [
   {
@@ -32,18 +36,31 @@ const data = [
 
 export default function Home() {
   const [checked, setChecked] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleChecked = () => {
     setChecked(!checked);
   };
 
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  const handleAction = () => {
+    openModal();
+  };
+
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-10/12 mx-auto flex flex-col gap-y-6">
       <CustomToggle checked={checked} handler={handleChecked} />
 
       <CustomListbox data={data} />
 
-      <div className="my-5">
+      <div className="flex flex-col gap-y-3">
         <CustomDisclosure
           title="Appearance"
           buttonClass=" flex justify-between"
@@ -100,9 +117,7 @@ export default function Home() {
             </div>
           </div>
         </CustomDisclosure>
-      </div>
 
-      <div className="my-5">
         <CustomDisclosure
           title="Settings"
           buttonClass=" flex justify-between"
@@ -160,9 +175,7 @@ export default function Home() {
             </div>
           </div>
         </CustomDisclosure>
-      </div>
 
-      <div className="my-5">
         <CustomDisclosure
           title="Pre-Chat Survey"
           buttonClass=" flex justify-between"
@@ -236,6 +249,32 @@ export default function Home() {
           </div>
         </CustomDisclosure>
       </div>
+
+      <button
+        className={`w-8 h-8 rounded-full bg-redCustom/10 flex justify-center items-center `}
+        onClick={() => handleAction()}
+      >
+        <BsFillTrashFill color="#F3451E" />
+      </button>
+
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Name
+            </Label>
+            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Username
+            </Label>
+            <Input id="username" value="@peduarte" className="col-span-3" />
+          </div>
+
+          <Button type="submit">Save changes</Button>
+        </div>
+      </Modal>
     </div>
   );
 }
