@@ -52,7 +52,6 @@ export function CustomDropDownMenu({
                 </React.Fragment>
               ))}
             </DropdownMenuGroup>
-
             {itemIndex < data.length - 1 && <DropdownMenuSeparator />}
           </React.Fragment>
         ))}
