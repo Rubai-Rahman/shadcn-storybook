@@ -29,13 +29,13 @@ interface MenuCategory {
 export function CustomDropDownMenu({
   data,
   buttonValue,
-  dropDownLabel,
   menuBg,
   menuWidth,
+  menuItemFocus,
 }: {
   data: MenuCategory[];
   buttonValue: string;
-  dropDownLabel: string;
+  menuItemFocus: string;
   menuBg: string;
   menuWidth: string;
 }) {
@@ -51,7 +51,10 @@ export function CustomDropDownMenu({
 
             <DropdownMenuGroup>
               {category.data.map((item) => (
-                <DropdownMenuItem key={item.name}>
+                <DropdownMenuItem
+                  key={item.name}
+                  className={`${menuItemFocus}`}
+                >
                   <span className="text-xs">{item.logo}</span>
                   <span>{item.name}</span>
                   <DropdownMenuShortcut>{item.shortcut}</DropdownMenuShortcut>

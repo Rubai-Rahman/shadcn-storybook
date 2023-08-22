@@ -372,9 +372,9 @@ export default function Home() {
       <CustomDropDownMenu
         data={menuData}
         buttonValue={'Open'}
-        dropDownLabel={'My Account'}
         menuBg={'bg-blue-400'}
         menuWidth={'w-56'}
+        menuItemFocus={'focus:bg-pink-200'}
       ></CustomDropDownMenu>
     </div>
   );
