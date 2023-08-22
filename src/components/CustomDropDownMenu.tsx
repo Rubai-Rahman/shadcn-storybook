@@ -48,7 +48,7 @@ export function CustomDropDownMenu({
         {data.map((category) => (
           <React.Fragment key={category.label}>
             <DropdownMenuLabel>{category.label}</DropdownMenuLabel>
-            <DropdownMenuSeparator />
+
             <DropdownMenuGroup>
               {category.data.map((item) => (
                 <DropdownMenuItem key={item.name}>
