@@ -17,9 +17,9 @@ import React, { ReactNode } from 'react'; // Import ReactNode
 import { Button } from '@/components/ui/button';
 
 interface menuDatatype {
-  logo: ReactNode; // Change the type to React.ReactNode
-  name: string;
-  shortcut: string;
+  logo?: ReactNode; // Change the type to React.ReactNode
+  name?: string;
+  shortcut?: string;
 }
 interface MenuCategory {
   label: string;

@@ -116,7 +116,7 @@ const menuData = [
       {
         logo: <Keyboard />,
         name: 'Keyboard shortcuts',
-        shortcut: '⌘K',
+        
       },
     ],
   },
