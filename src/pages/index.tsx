@@ -1,53 +1,53 @@
-import { useState } from 'react';
-import CustomToggle from '../components/CustomToggle';
-import CustomListbox from '@/components/CustomListbox';
-import CustomDisclosure from '@/components/CustomDisclosure';
-import { FaPlus } from 'react-icons/fa';
-import { AiOutlineCheck } from 'react-icons/ai';
-import { ImAttachment } from 'react-icons/im';
-import { BsEmojiSmileFill, BsFillTrashFill } from 'react-icons/bs';
-import Modal from '@/components/Modal';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { CustomTabs } from '@/components/CustomTabs';
+import { useState } from "react";
+import CustomToggle from "../components/CustomToggle";
+import CustomListbox from "@/components/CustomListbox";
+import CustomDisclosure from "@/components/CustomDisclosure";
+import { FaPlus } from "react-icons/fa";
+import { AiOutlineCheck } from "react-icons/ai";
+import { ImAttachment } from "react-icons/im";
+import { BsEmojiSmileFill, BsFillTrashFill } from "react-icons/bs";
+import Modal from "@/components/Modal";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { CustomTabs } from "@/components/CustomTabs";
 
 const data = [
   {
-    value: 'next.js',
-    label: 'Next.js',
+    value: "next.js",
+    label: "Next.js",
   },
   {
-    value: 'sveltekit',
-    label: 'SvelteKit',
+    value: "sveltekit",
+    label: "SvelteKit",
   },
   {
-    value: 'nuxt.js',
-    label: 'Nuxt.js',
+    value: "nuxt.js",
+    label: "Nuxt.js",
   },
   {
-    value: 'remix',
-    label: 'Remix',
+    value: "remix",
+    label: "Remix",
   },
   {
-    value: 'astro',
-    label: 'Astro',
+    value: "astro",
+    label: "Astro",
   },
 ];
 
 const tabsData = [
   {
-    name: 'Account1',
+    name: "Account1",
     count: 2,
     panel: <p>This is Account1</p>,
   },
   {
-    name: 'Account2',
+    name: "Account2",
 
     panel: <p>This is Account2</p>,
   },
   {
-    name: 'Password',
+    name: "Password",
     count: 5,
     panel: <p>This is Account3</p>,
   },
@@ -126,7 +126,7 @@ export default function Home() {
                   id=""
                   value="Right"
                   defaultChecked
-                />{' '}
+                />{" "}
                 <p>Right</p>
               </div>
               <div className="flex gap-x-2 items-center">
@@ -294,11 +294,11 @@ export default function Home() {
           <Button type="submit">Save changes</Button>
         </div>
       </Modal>
+
       <CustomTabs
         data={tabsData}
-        tabTrigeerBgColor="bg-purple-500"
-        tabListBgColor="bg-red-600"
-        textSize="text-xl"
+        tabTriggerClassName="data-[state=active]:border-b-2 data-[state=inactive]:border-b-2 data-[state=active]:border-blue-500 data-[state=inactive]:border-transparent data-[state=inactive]:text-blue-500 data-[state=active]:text-blue-500 rounded-none"
+        tabListClassName="bg-transparent rounded-none"
       ></CustomTabs>
     </div>
   );
