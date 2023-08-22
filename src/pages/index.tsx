@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CustomTabs } from "@/components/CustomTabs";
+import { CustomDropDownMenu } from "@/components/CustomDropDownMenu";
 
 const data = [
   {
@@ -50,6 +51,58 @@ const tabsData = [
     name: "Password",
     count: 5,
     panel: <p>This is Account3</p>,
+  },
+];
+
+const menuData = [
+  {
+    label: "My Account",
+    data: [
+      {
+        logo: <User />,
+        name: "Profile",
+        shortcut: "⇧⌘P",
+      },
+      {
+        logo: <CreditCard />,
+        name: "Billing",
+        shortcut: "⌘B",
+      },
+      {
+        logo: <Settings />,
+        name: "Settings ",
+        shortcut: "⌘S",
+      },
+      {
+        logo: <Keyboard />,
+        name: "Keyboard shortcuts",
+        shortcut: "⌘K",
+      },
+    ],
+  },
+  {
+    label: "My Profile",
+    data: [
+      {
+        logo: <User />,
+        name: "Address",
+        shortcut: "⇧⌘P",
+      },
+      {
+        logo: <CreditCard />,
+        name: "ProfilePicture",
+        shortcut: "⌘B",
+      },
+      {
+        logo: <Settings />,
+        name: "Phone Number ",
+        shortcut: "⌘S",
+      },
+      {
+        logo: <Keyboard />,
+        name: "Keyboard shortcuts",
+      },
+    ],
   },
 ];
 
@@ -300,6 +353,14 @@ export default function Home() {
         tabTriggerClassName="data-[state=active]:border-b-2 data-[state=inactive]:border-b-2 data-[state=active]:border-blue-500 data-[state=inactive]:border-transparent data-[state=inactive]:text-blue-500 data-[state=active]:text-blue-500 rounded-none"
         tabListClassName="bg-transparent rounded-none"
       ></CustomTabs>
+
+      <CustomDropDownMenu
+        data={menuData}
+        buttonValue={"Open"}
+        menuBg={"bg-blue-400"}
+        menuWidth={"w-56"}
+        menuItemFocus={"focus:bg-pink-200"}
+      ></CustomDropDownMenu>
     </div>
   );
 }
