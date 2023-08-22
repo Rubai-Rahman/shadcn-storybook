@@ -11,6 +11,23 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CustomTabs } from '@/components/CustomTabs';
+import { CustomDropDownMenu } from '@/components/CustomDropDownMenu';
+import {
+  Cloud,
+  CreditCard,
+  Github,
+  Keyboard,
+  LifeBuoy,
+  LogOut,
+  Mail,
+  MessageSquare,
+  Plus,
+  PlusCircle,
+  Settings,
+  User,
+  UserPlus,
+  Users,
+} from 'lucide-react';
 
 const data = [
   {
@@ -50,6 +67,58 @@ const tabsData = [
     name: 'Password',
     count: 5,
     panel: <p>This is Account3</p>,
+  },
+];
+const menuData = [
+  {
+    label: 'My Account',
+    data: [
+      {
+        logo: <User />,
+        name: 'Profile',
+        shortcut: '⇧⌘P',
+      },
+      {
+        logo: <CreditCard />,
+        name: 'Billing',
+        shortcut: '⌘B',
+      },
+      {
+        logo: <Settings />,
+        name: 'Settings ',
+        shortcut: '⌘S',
+      },
+      {
+        logo: <Keyboard />,
+        name: 'Keyboard shortcuts',
+        shortcut: '⌘K',
+      },
+    ],
+  },
+  {
+    label: 'My Profile',
+    data: [
+      {
+        logo: <User />,
+        name: 'Address',
+        shortcut: '⇧⌘P',
+      },
+      {
+        logo: <CreditCard />,
+        name: 'ProfilePicture',
+        shortcut: '⌘B',
+      },
+      {
+        logo: <Settings />,
+        name: 'Phone Number ',
+        shortcut: '⌘S',
+      },
+      {
+        logo: <Keyboard />,
+        name: 'Keyboard shortcuts',
+        
+      },
+    ],
   },
 ];
 
@@ -296,10 +365,17 @@ export default function Home() {
       </Modal>
       <CustomTabs
         data={tabsData}
-        tabTrigeerBgColor="bg-purple-500"
+        tabTrigeerBgColor="bg-blue-300"
         tabListBgColor="bg-red-600"
         textSize="text-xl"
       ></CustomTabs>
+      <CustomDropDownMenu
+        data={menuData}
+        buttonValue={'Open'}
+        menuBg={'bg-blue-400'}
+        menuWidth={'w-56'}
+        menuItemFocus={'focus:bg-pink-200'}
+      ></CustomDropDownMenu>
     </div>
   );
 }
