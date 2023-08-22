@@ -6,21 +6,17 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import React, { ReactNode } from 'react'; // Import ReactNode
-
-import { Button } from '@/components/ui/button';
+import React, { ReactElement, ReactNode } from 'react'; // Import ReactNode
 
 interface menuDatatype {
-  logo?: ReactNode; // Change the type to React.ReactNode
+  logo?: ReactNode;
   name?: string;
   shortcut?: string;
 }
+
 interface MenuCategory {
   label: string;
   data: menuDatatype[];
@@ -28,40 +24,36 @@ interface MenuCategory {
 
 export function CustomDropDownMenu({
   data,
-  buttonValue,
-  menuBg,
-  menuWidth,
-  menuItemFocus,
+  menuClassName,
+  menuItemClassName,
+  children,
 }: {
   data: MenuCategory[];
-  buttonValue: string;
-  menuItemFocus: string;
-  menuBg: string;
-  menuWidth: string;
+  menuItemClassName: string;
+  menuClassName: string;
+  children: ReactElement;
 }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">{buttonValue}</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className={`${menuBg} ${menuWidth}`}>
-        {data.map((category) => (
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
+      <DropdownMenuContent className={`${menuClassName}`}>
+        {data.map((category, itemIndex) => (
           <React.Fragment key={category.label}>
             <DropdownMenuLabel>{category.label}</DropdownMenuLabel>
 
             <DropdownMenuGroup>
               {category.data.map((item) => (
-                <DropdownMenuItem
-                  key={item.name}
-                  className={`${menuItemFocus}`}
-                >
-                  <span className="text-xs">{item.logo}</span>
-                  <span>{item.name}</span>
-                  <DropdownMenuShortcut>{item.shortcut}</DropdownMenuShortcut>
-                </DropdownMenuItem>
+                <React.Fragment key={item.name}>
+                  <DropdownMenuItem className={`${menuItemClassName}`}>
+                    <span className="text-xs">{item.logo}</span>
+                    <span>{item.name}</span>
+                    <DropdownMenuShortcut>{item.shortcut}</DropdownMenuShortcut>
+                  </DropdownMenuItem>
+                </React.Fragment>
               ))}
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
+
+            {itemIndex < data.length - 1 && <DropdownMenuSeparator />}
           </React.Fragment>
         ))}
       </DropdownMenuContent>

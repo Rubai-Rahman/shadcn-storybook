@@ -104,7 +104,6 @@ const menuData = [
         shortcut: '⇧⌘P',
       },
       {
-        logo: <CreditCard />,
         name: 'ProfilePicture',
         shortcut: '⌘B',
       },
@@ -116,7 +115,6 @@ const menuData = [
       {
         logo: <Keyboard />,
         name: 'Keyboard shortcuts',
-        
       },
     ],
   },
@@ -363,19 +361,21 @@ export default function Home() {
           <Button type="submit">Save changes</Button>
         </div>
       </Modal>
+
       <CustomTabs
         data={tabsData}
         tabTrigeerBgColor="bg-blue-300"
         tabListBgColor="bg-red-600"
         textSize="text-xl"
       ></CustomTabs>
+
       <CustomDropDownMenu
         data={menuData}
-        buttonValue={'Open'}
-        menuBg={'bg-blue-400'}
-        menuWidth={'w-56'}
-        menuItemFocus={'focus:bg-pink-200'}
-      ></CustomDropDownMenu>
+        menuClassName={'bg-blue-400 w-56 h-full'}
+        menuItemClassName={'focus:bg-pink-200'}
+      >
+        <button>click me</button>
+      </CustomDropDownMenu>
     </div>
   );
 }
