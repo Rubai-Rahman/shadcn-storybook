@@ -1,54 +1,55 @@
-import { useState } from "react";
-import CustomToggle from "../components/CustomToggle";
-import CustomListbox from "@/components/CustomListbox";
-import CustomDisclosure from "@/components/CustomDisclosure";
-import { FaPlus } from "react-icons/fa";
-import { AiOutlineCheck } from "react-icons/ai";
-import { ImAttachment } from "react-icons/im";
-import { BsEmojiSmileFill, BsFillTrashFill } from "react-icons/bs";
-import Modal from "@/components/Modal";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { CustomTabs } from "@/components/CustomTabs";
-import { CustomDropDownMenu } from "@/components/CustomDropDownMenu";
+import { useState } from 'react';
+import CustomToggle from '../components/CustomToggle';
+import CustomListbox from '@/components/CustomListbox';
+import CustomDisclosure from '@/components/CustomDisclosure';
+import { FaPlus } from 'react-icons/fa';
+import { AiOutlineCheck } from 'react-icons/ai';
+import { ImAttachment } from 'react-icons/im';
+import { BsEmojiSmileFill, BsFillTrashFill } from 'react-icons/bs';
+import Modal from '@/components/Modal';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { CustomTabs } from '@/components/CustomTabs';
+import { CustomDropDownMenu } from '@/components/CustomDropDownMenu';
+import { CreditCard, Keyboard, Settings, User } from 'lucide-react';
 
 const data = [
   {
-    value: "next.js",
-    label: "Next.js",
+    value: 'next.js',
+    label: 'Next.js',
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
+    value: 'sveltekit',
+    label: 'SvelteKit',
   },
   {
-    value: "nuxt.js",
-    label: "Nuxt.js",
+    value: 'nuxt.js',
+    label: 'Nuxt.js',
   },
   {
-    value: "remix",
-    label: "Remix",
+    value: 'remix',
+    label: 'Remix',
   },
   {
-    value: "astro",
-    label: "Astro",
+    value: 'astro',
+    label: 'Astro',
   },
 ];
 
 const tabsData = [
   {
-    name: "Account1",
+    name: 'Account1',
     count: 2,
     panel: <p>This is Account1</p>,
   },
   {
-    name: "Account2",
+    name: 'Account2',
 
     panel: <p>This is Account2</p>,
   },
   {
-    name: "Password",
+    name: 'Password',
     count: 5,
     panel: <p>This is Account3</p>,
   },
@@ -56,51 +57,50 @@ const tabsData = [
 
 const menuData = [
   {
-    label: "My Account",
+    label: 'My Account',
     data: [
       {
         logo: <User />,
-        name: "Profile",
-        shortcut: "⇧⌘P",
+        name: 'Profile',
+        shortcut: '⇧⌘P',
       },
       {
         logo: <CreditCard />,
-        name: "Billing",
-        shortcut: "⌘B",
+        name: 'Billing',
+        shortcut: '⌘B',
       },
       {
         logo: <Settings />,
-        name: "Settings ",
-        shortcut: "⌘S",
+        name: 'Settings ',
+        shortcut: '⌘S',
       },
       {
         logo: <Keyboard />,
-        name: "Keyboard shortcuts",
-        shortcut: "⌘K",
+        name: 'Keyboard shortcuts',
+        shortcut: '⌘K',
       },
     ],
   },
   {
-    label: "My Profile",
+    label: 'My Profile',
     data: [
       {
         logo: <User />,
-        name: "Address",
-        shortcut: "⇧⌘P",
+        name: 'Address',
+        shortcut: '⇧⌘P',
       },
       {
-        logo: <CreditCard />,
-        name: "ProfilePicture",
-        shortcut: "⌘B",
+        name: 'ProfilePicture',
+        shortcut: '⌘B',
       },
       {
         logo: <Settings />,
-        name: "Phone Number ",
-        shortcut: "⌘S",
+        name: 'Phone Number ',
+        shortcut: '⌘S',
       },
       {
         logo: <Keyboard />,
-        name: "Keyboard shortcuts",
+        name: 'Keyboard shortcuts',
       },
     ],
   },
@@ -179,7 +179,7 @@ export default function Home() {
                   id=""
                   value="Right"
                   defaultChecked
-                />{" "}
+                />{' '}
                 <p>Right</p>
               </div>
               <div className="flex gap-x-2 items-center">
@@ -356,11 +356,11 @@ export default function Home() {
 
       <CustomDropDownMenu
         data={menuData}
-        buttonValue={"Open"}
-        menuBg={"bg-blue-400"}
-        menuWidth={"w-56"}
-        menuItemFocus={"focus:bg-pink-200"}
-      ></CustomDropDownMenu>
+        menuClassName={'bg-blue-400 w-56 h-full'}
+        menuItemClassName={'focus:bg-pink-200'}
+      >
+        <button>click me</button>
+      </CustomDropDownMenu>
     </div>
   );
 }
