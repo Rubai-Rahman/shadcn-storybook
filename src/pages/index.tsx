@@ -1,18 +1,18 @@
 import { useState } from "react";
-import CustomToggle from "../components/CustomToggle";
-import CustomListbox from "@/components/CustomListbox";
-import CustomDisclosure from "@/components/CustomDisclosure";
 import { FaPlus } from "react-icons/fa";
 import { AiOutlineCheck } from "react-icons/ai";
 import { ImAttachment } from "react-icons/im";
 import { BsEmojiSmileFill, BsFillTrashFill } from "react-icons/bs";
-import Modal from "@/components/Modal";
 import { Label } from "@/components/shadcn/label";
 import { Button } from "@/components/shadcn/button";
 import { Input } from "@/components/shadcn/input";
-import { CustomTabs } from "@/components/CustomTabs";
-import { CustomDropDownMenu } from "@/components/CustomDropDownMenu";
+import { CustomTabs } from "@/shared/components/CustomTabs/CustomTabs";
+import { CustomDropDownMenu } from "@/shared/components/CustomDropDown/CustomDropDownMenu";
 import { CreditCard, Keyboard, Settings, User } from "lucide-react";
+import CustomSwitch from "@/shared/components/CustomSwitch/CustomSwitch";
+import CustomComboBox from "@/shared/components/CustomComboBox/CustomComboBox";
+import CustomAccordion from "@/shared/components/CustomAccordion/CustomAccordion";
+import CustomDialog from "@/shared/components/CustomDialog/CustomDialog";
 
 const data = [
   {
@@ -128,12 +128,12 @@ export default function Home() {
 
   return (
     <div className="w-10/12 mx-auto flex flex-col gap-y-6">
-      <CustomToggle checked={checked} handler={handleChecked} />
+      <CustomSwitch checked={checked} handler={handleChecked} />
 
-      <CustomListbox data={data} />
+      <CustomComboBox data={data} />
 
       <div className="flex flex-col gap-y-3">
-        <CustomDisclosure
+        <CustomAccordion
           title="Appearance"
           buttonClass=" flex justify-between"
           titleClass="text-bigger font-semibold leading-6 text-darkCustom"
@@ -188,9 +188,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </CustomDisclosure>
+        </CustomAccordion>
 
-        <CustomDisclosure
+        <CustomAccordion
           title="Settings"
           buttonClass=" flex justify-between"
           titleClass="text-bigger font-semibold leading-6 text-darkCustom"
@@ -212,7 +212,7 @@ export default function Home() {
                 <p className="py-2 px-5 text-grayCustom font-medium text-small leading-4">
                   Display Chat Widget when Offline
                 </p>
-                <CustomToggle checked={checked} handler={handleChecked} />
+                <CustomSwitch checked={checked} handler={handleChecked} />
               </div>
               <textarea
                 rows={5}
@@ -246,9 +246,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </CustomDisclosure>
+        </CustomAccordion>
 
-        <CustomDisclosure
+        <CustomAccordion
           title="Pre-Chat Survey"
           buttonClass=" flex justify-between"
           titleClass="text-bigger font-semibold leading-6 text-darkCustom"
@@ -258,7 +258,7 @@ export default function Home() {
               <p className="font-medium text-normal leading-4 text-darkCustom">
                 Enable Pre-Chat Survey
               </p>
-              <CustomToggle checked={checked} handler={handleChecked} />
+              <CustomSwitch checked={checked} handler={handleChecked} />
             </div>
             <div>
               <p className="py-2 px-5 text-grayCustom font-medium text-small leading-4">
@@ -319,7 +319,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </CustomDisclosure>
+        </CustomAccordion>
       </div>
 
       <button
@@ -329,7 +329,7 @@ export default function Home() {
         <BsFillTrashFill color="#F3451E" />
       </button>
 
-      <Modal isOpen={isOpen} closeModal={closeModal}>
+      <CustomDialog isOpen={isOpen} closeModal={closeModal}>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
@@ -346,7 +346,7 @@ export default function Home() {
 
           <Button type="submit">Save changes</Button>
         </div>
-      </Modal>
+      </CustomDialog>
 
       <CustomTabs
         data={tabsData}

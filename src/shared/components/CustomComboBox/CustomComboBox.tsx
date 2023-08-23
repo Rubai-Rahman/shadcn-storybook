@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/shadcn/popover";
 import { Check } from "lucide-react";
 import { Command, CommandGroup, CommandItem } from "@/shadcn/command";
-import { cn } from "../lib/utils";
+import { cn } from "../../../lib/utils";
 import { IoIosArrowDown } from "react-icons/io";
 
-const CustomListbox = ({
+const CustomComboBox = ({
   maxWidth = "w-1/4",
   label,
   labelClass,
@@ -30,8 +30,6 @@ const CustomListbox = ({
   const [selected, setSelected] = useState(
     staticPlaceholder ? staticPlaceholder : data[0].label
   );
-
-  // console.log(selected);
 
   return (
     <div className={`${maxWidth && maxWidth}`}>
@@ -90,4 +88,4 @@ const CustomListbox = ({
   );
 };
 
-export default CustomListbox;
+export default CustomComboBox;

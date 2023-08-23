@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "@/shadcn/switch";
 
-const CustomToggle = ({
+const CustomSwitch = ({
   checked,
   handler,
   disable,
@@ -57,4 +57,4 @@ const CustomToggle = ({
   );
 };
 
-export default CustomToggle;
+export default CustomSwitch;
