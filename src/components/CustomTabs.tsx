@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,11 +6,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ReactElement, useState } from 'react';
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ReactElement, useState } from "react";
 interface tabsType {
   name: string;
   count?: number;
@@ -19,23 +19,21 @@ interface tabsType {
 
 export function CustomTabs({
   data,
-  tabTrigeerBgColor,
-  tabListBgColor,
-  textSize,
+  tabTriggerClassName,
+  tabListClassName,
 }: {
   data: tabsType[];
-  tabTrigeerBgColor: string;
-  tabListBgColor: string;
-  textSize: string;
+  tabTriggerClassName: string;
+  tabListClassName: string;
 }) {
   return (
-    <Tabs className="w-full">
-      <TabsList className={`w-full ${tabListBgColor}`}>
-        {data.map((tab) => (
+    <Tabs className="w-full" defaultValue="Tab-0">
+      <TabsList className={`w-full ${tabListClassName} `}>
+        {data.map((tab, index) => (
           <TabsTrigger
             key={tab.name}
-            value={tab.name}
-            className={`flex gap-x-2 w-full  ${textSize}  data-[state=active]:${tabTrigeerBgColor}
+            value={`Tab-${index}`}
+            className={`flex gap-x-2 w-full ${tabTriggerClassName}
             `}
           >
             {tab.name}
@@ -48,8 +46,8 @@ export function CustomTabs({
           </TabsTrigger>
         ))}
       </TabsList>
-      {data.map((tab) => (
-        <TabsContent key={tab.name} value={tab.name}>
+      {data.map((tab, index) => (
+        <TabsContent key={tab.name} value={`Tab-${index}`}>
           {tab.panel}
         </TabsContent>
       ))}

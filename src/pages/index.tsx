@@ -12,22 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CustomTabs } from '@/components/CustomTabs';
 import { CustomDropDownMenu } from '@/components/CustomDropDownMenu';
-import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User,
-  UserPlus,
-  Users,
-} from 'lucide-react';
+import { CreditCard, Keyboard, Settings, User } from 'lucide-react';
 
 const data = [
   {
@@ -69,6 +54,7 @@ const tabsData = [
     panel: <p>This is Account3</p>,
   },
 ];
+
 const menuData = [
   {
     label: 'My Account',
@@ -364,9 +350,8 @@ export default function Home() {
 
       <CustomTabs
         data={tabsData}
-        tabTrigeerBgColor="bg-blue-300"
-        tabListBgColor="bg-red-600"
-        textSize="text-xl"
+        tabTriggerClassName="data-[state=active]:border-b-2 data-[state=inactive]:border-b-2 data-[state=active]:border-blue-500 data-[state=inactive]:border-transparent data-[state=inactive]:text-blue-500 data-[state=active]:text-blue-500 rounded-none"
+        tabListClassName="bg-transparent rounded-none"
       ></CustomTabs>
 
       <CustomDropDownMenu
