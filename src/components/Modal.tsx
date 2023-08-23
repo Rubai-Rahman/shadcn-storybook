@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/shadcn/dialog";
 
 const Modal = ({
   // content,

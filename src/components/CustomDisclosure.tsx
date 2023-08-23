@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./ui/accordion";
+} from "@/shadcn/accordion";
 import Image from "next/image";
 
 const CustomDisclosure = ({

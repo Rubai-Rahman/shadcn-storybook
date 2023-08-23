@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/shadcn/popover";
 import { Check } from "lucide-react";
-import { Command, CommandGroup, CommandItem } from "./ui/command";
+import { Command, CommandGroup, CommandItem } from "@/shadcn/command";
 import { cn } from "../lib/utils";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -31,7 +31,7 @@ const CustomListbox = ({
     staticPlaceholder ? staticPlaceholder : data[0].label
   );
 
-  console.log(selected);
+  // console.log(selected);
 
   return (
     <div className={`${maxWidth && maxWidth}`}>

@@ -4,12 +4,11 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/shadcn/dropdown-menu";
 
-import React, { ReactElement, ReactNode } from 'react'; // Import ReactNode
+import React, { ReactElement, ReactNode } from "react"; // Import ReactNode
 
 interface menuDatatype {
   logo?: ReactNode;
@@ -36,9 +35,9 @@ export function CustomDropDownMenu({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
-      <DropdownMenuContent className={`${menuClassName}`}>
+      <DropdownMenuContent className={`divide-y ${menuClassName}`}>
         {data.map((category, itemIndex) => (
-          <React.Fragment key={category.label}>
+          <div key={category.label}>
             <DropdownMenuLabel>{category.label}</DropdownMenuLabel>
 
             <DropdownMenuGroup>
@@ -52,8 +51,7 @@ export function CustomDropDownMenu({
                 </React.Fragment>
               ))}
             </DropdownMenuGroup>
-            {itemIndex < data.length - 1 && <DropdownMenuSeparator />}
-          </React.Fragment>
+          </div>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
